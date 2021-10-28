@@ -28,17 +28,16 @@ int main()
 void contract (char in[], char out[])
 {   
     int i ,j;
-    int last, len;
-    int state;
+    int state ,last;
 
     state = OUT;
     j = 0;
-    len = sizeof(in) / sizeof(in[0]);
-    printf("%d",len);
+   
 
-    for(i = 0; i < len; ++i)
+
+    for(i = 0; in[i] != '\0'; ++i)
     {
-        if (('1' <= in[i] && in[i] <= '9') || ('a' <= in[i] && in[i]<= 'z') || ('A' <= in[i] && in[i] <= 'Z')){
+        if (('0' <= in[i] && in[i] <= '9') || ('a' <= in[i] && in[i]<= 'z') || ('A' <= in[i] && in[i] <= 'Z')){
             if (state == OUT) {
                 out[j] = in[i];
                 state = IN;
