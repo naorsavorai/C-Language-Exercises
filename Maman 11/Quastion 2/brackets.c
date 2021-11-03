@@ -3,31 +3,33 @@
 #define INSIDE 1
 #define OUTSIDE 0
 
-int validLine(char str[],int i, int q , char specialStack[], int j);
+int validLine(char str[],int i, int q , char specialStack[]);
 int endLine(char brack[], int i);
 int getEndOfLine(char str[], int i);
 int stackChecker(char specialStack[]);
 
-
+int j = 0;
 int main()
 {    
     char str[MAXIN];
-    char specialStack[MAXIN];
-    int i ,j;
+    char stack[MAXIN];
+    int  q;
     int res1, res2;
+    
+    q = 1;
+    stack[0] = 'N';
+    res1 = 0;
+    res2 = 0;
 
-    i = 0;
-    j = 0;
-    specialStack[0] = 'N';
-
-    printf("Please enter a text or a text file:\n");
-    fgets(str,MAXIN,stdin);
-
-    printf("\n*********************************************************\n");
-    res1 = validLine(str,i, 1, specialStack, j);
-    res2 = stackChecker(specialStack);
-    printf("res1 = %d\n", res1);
-    printf("res2 = %d\n", res2);
+ printf("Please enter a text or a text file:\n");
+    while(fgets(str,MAXIN,stdin)){
+        printf("Line %d is: %s",q ,str);
+        res1 =  res1 + validLine(str,0, q, stack); 
+        ++q;
+    }
+    res2 = stackChecker(stack);
+    printf("res1 is: %d\n",res1 );
+    printf("res2 is: %d\n",res2 );
     if (res1 +res2 > 0 ) {
         printf("text is invalid\n");
     }
@@ -82,9 +84,9 @@ int getEndOfLine(char str[], int i)
     }
     return k;
 } 
-int isSpecial(char str[], int i, char specialStack[], int j);
+int isSpecial(char str[], int i, char specialStack[]);
 
-int validLine(char str[], int i, int q, char specialStack[], int j)
+int validLine(char str[], int i, int q, char specialStack[])
 {
     int k, r;
     int state;
@@ -94,10 +96,10 @@ int validLine(char str[], int i, int q, char specialStack[], int j)
     r = 0; 
     brack[0] = 'N';
 
-    if (isSpecial(str, i, specialStack, j) == 0){
+    if (isSpecial(str, i, specialStack) == 0){
         printf("line %d is special\n", q);
         k = getEndOfLine(str, i);
-        return validLine(str, k+1, q+1, specialStack, j);
+        return 0;
     }
     	
     for (k = i; (str[k] != '\0') && (str[k] != '\n') ; ++k)
@@ -145,48 +147,37 @@ int validLine(char str[], int i, int q, char specialStack[], int j)
              else {
                  printf("Line %d is invalid\n", q);
                  k = getEndOfLine(str, k);
-                 return 1 + validLine(str, k+1, q+1, specialStack, j);
+                 return 1 ;
              }
         }          
     }
-    printf("str[k] is %c\n",str[k]);
-    if (str[k] == '\0'){
-        printf("you are in 0\n");
+    if (str[k] == '\0'  || str[k] == '\n'){
         return endLineCheck(brack, q);
     }
-    else if (str[k] == '\n'){
-        printf("you are in n\n");
-        return endLineCheck(brack, q) + validLine(str, k+1, q+1,specialStack, j);
-    }
     else {
-        printf("you are wrong\n");
-        return 12;
+    
+        return 0;
     }
 }
 
-int isSpecial(char str[], int i, char specialStack[], int j)
+int isSpecial(char str[], int i, char specialStack[])
 {
     int k;
     int count;
     char op;
 
     count = 0;
-
+    
     for (k = i; str[k] != '\n' && str[k] != '\0'; ++k){
-        if (str[k] != '}' && str[k] != '{'){
+        if ((str[k] != '}' && str[k] != '{') || (count >= 1 && str[k] != ' ')){
             return 1;
         }
         else if ((str[k] == '{' || str[k] =='}') && (count == 0)){
             specialStack[j] = str[k];
             ++j;
             ++count;
-        }
-        else if ((str[k] == '{' || str[k] == '}') && (count > 0) ){
-            --j;
-            specialStack[j] = 'N';
-            return 1;
-        }
-    }
+        }   
+    }             
     if (count == 1){
         op = open(specialStack[j-1]);
         if (op == specialStack[j-2]){
@@ -202,7 +193,4 @@ int isSpecial(char str[], int i, char specialStack[], int j)
     }
 
 }
-
-
-
 
