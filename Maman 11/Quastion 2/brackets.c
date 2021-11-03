@@ -28,8 +28,6 @@ int main()
         ++q;
     }
     res2 = stackChecker(stack);
-    printf("res1 is: %d\n",res1 );
-    printf("res2 is: %d\n",res2 );
     if (res1 +res2 > 0 ) {
         printf("text is invalid\n");
     }
@@ -109,26 +107,26 @@ int validLine(char str[], int i, int q, char specialStack[])
             ++r;
             continue;
         }
-        if ((str[i] == '"') && (state == OUTSIDE)){
+        if ((str[k] == '"') && (state == OUTSIDE)){
             state = INSIDE;
-            brack[r] =str[i];
+            brack[r] =str[k];
             ++r;
             continue;
         }
-        if ((i > 0) && (str[i-1] == '/') && (str[i] == '*') && ( state == OUTSIDE )){
+        if ((k > 0) && (str[k-1] == '/') && (str[k] == '*') && ( state == OUTSIDE )){
             state = INSIDE;
             brack[r] = str[k];
             ++r;
             continue;
         }
-        if ((str[i] == '"' ) && (state == INSIDE) && (brack[j-1] == '"')){
+        if ((str[k] == '"' ) && (state == INSIDE) && (brack[r-1] == '"')){
             state = OUTSIDE;
             --r;
             brack[r] = 'N';
             continue;
             
         }
-        if ( (i > 0) && (str[k] == '/') && (str[k-1] == '*') && (state == INSIDE) && (brack[k-1] == '*' )){
+        if ( (k > 0) && (str[k] == '/') && (str[k-1] == '*') && (state == INSIDE) && (brack[r-1] == '*' )){
             --r;
             brack[r] = 'N';
             state = OUTSIDE;
@@ -136,9 +134,7 @@ int validLine(char str[], int i, int q, char specialStack[])
         }
         if (((str[k] == '}') || (str[k] == ']') || (str[k] == ')')) && (state == OUTSIDE)){
              char op;
-             
              op = open(str[k]);
-
              if (brack[r-1] == op){
                  --r;
                  brack[r] = 'N';

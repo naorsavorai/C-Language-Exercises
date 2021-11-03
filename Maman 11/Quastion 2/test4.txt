@@ -1,0 +1,9 @@
+/* test: all valid lines but special line syntax is incprrect*/
+
+int main()
+}
+  int j;
+  int k;
+  printf("{]");
+{
+
