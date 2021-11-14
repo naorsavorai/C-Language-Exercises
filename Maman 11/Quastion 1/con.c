@@ -35,7 +35,7 @@ void contract (char in[], char out[])
    
 
 
-    for(i = 0; in[i] != '\0'; ++i)
+    for(i = 0; in[i] != '\0' || in[i] == '\n'; ++i)
     {
         if (('0' <= in[i] && in[i] <= '9') || ('a' <= in[i] && in[i]<= 'z') || ('A' <= in[i] && in[i] <= 'Z')){
             if (state == OUT) {

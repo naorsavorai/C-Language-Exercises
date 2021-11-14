@@ -1,4 +1,4 @@
-/* test: all valid lines but special line syntax is incprrect*/
+/* test: all valid lines but special line syntax is incorrect*/
 
 int main()
 }

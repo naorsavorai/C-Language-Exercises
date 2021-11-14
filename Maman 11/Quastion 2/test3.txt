@@ -1,5 +1,3 @@
-/* this is a fail test*/
+/* this is a fail test: incorrect brackets syntax*/
 
 {]
-(
-{
