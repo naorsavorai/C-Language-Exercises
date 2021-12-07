@@ -1,0 +1,9 @@
+3 
+A test that checks if the program identifys a magic square given an messy user input
+
+4 1 7				
+7 dsdf
+4 	
+1
+1 vjh	7 k    
+             4

@@ -1,0 +1,8 @@
+5
+This test checks if th program  identifys integers correctly
+
+12gdf-114gf 1 h1 1
+2 2 25SSA tr2tr 2
+3 3 3 3 3
+4 4 4 4 4 
+5 5 5 5 5

@@ -1,0 +1,5 @@
+2
+A test that checks if  the program identify if the square is not  a magic square
+
+-1 2
+2 -1

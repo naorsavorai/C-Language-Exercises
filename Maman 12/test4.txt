@@ -1,0 +1,5 @@
+3
+Second test that checks if the program idenifys a  a magic square
+8	1	6
+3	5	7
+4	9	2

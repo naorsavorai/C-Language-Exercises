@@ -1,0 +1,5 @@
+4
+
+A test that checks if the program checks if the users entered enough integers
+
+1 2
