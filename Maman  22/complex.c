@@ -2,10 +2,10 @@
 #include <math.h>
 #include "complex.h"
 
-void read_comp(comp *z ,double real, double imaginary)
+void read_comp(comp* z ,double real, double imaginary)
 {
-        *z.rl = real;
-        *z.im = imaginary;
+        (*z).rl = real;
+        (*z).im = imaginary;
 }
 void print_comp(comp z)
 {

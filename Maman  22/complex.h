@@ -10,7 +10,7 @@ typedef struct  imaginary
 } img;
 
 void print_comp(comp z);
-void read_comp(comp z ,double real, double imaginary);
+void read_comp(comp *z ,double real, double imaginary);
 comp default_comp();
 comp add_comp(comp z, comp w);
 comp sub_comp(comp z, comp w);
