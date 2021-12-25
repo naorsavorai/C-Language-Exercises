@@ -22,14 +22,14 @@ comp add_comp(comp z, comp w)
 {
     comp res;
     res.rl = (z.rl) + (w.rl);
-    res.im = (z.im) + (w.rl);
+    res.im = (z.im) + (w.im);
     return res;
 }
 comp sub_comp(comp z, comp w)
 {
     comp res;
     res.rl = (z.rl) - (w.rl);
-    res.im = (z.im) - (w.rl);
+    res.im = (z.im) - (w.im);
     return res;
 }
 comp mult_comp_real(comp z, double x)
