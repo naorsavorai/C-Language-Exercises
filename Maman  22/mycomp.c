@@ -9,7 +9,7 @@
 int main(){
     comp A,B,C,D,E,F;
     comp*  pointers[6];
-
+    
     A = B = C = D = E = F = default_comp();
     pointers[0] = &A;
     pointers[1] = &B;
@@ -39,7 +39,7 @@ int is_numeric(char c)
 {
     int res;
 
-    if (c >= '0' && c <= '9')
+    if ((c >= '0' && c <= '9') || c == '-')
     {
         res = 0; 
     }
@@ -92,36 +92,6 @@ int correct_pointer(char c)
     default   :
         return -1;                 
     }
-}
-void use_print_all(comp* pointers[])
-{
-        printf("A = ");
-        print_comp(*pointers[0]);
-        printf("\nB = ");
-        print_comp(*pointers[1]);
-        printf("\nC = ");
-        print_comp(*pointers[2]);
-        printf("\nD = ");
-        print_comp(*pointers[3]);
-        printf("\nE = ");
-        print_comp(*pointers[4]);
-        printf("\nF = ");
-        print_comp(*pointers[5]);
-        printf("\n");   
-}
-void use_help()
-{
-        printf("List Of Valid Commands:\n");
-        printf("1) read_comp complex(A-F), real(double), imaginary(double)  -  Intializes a wanted complex number \n");
-        printf("2) print_comp complex(A-F)  -  Prints a wanted complex number\n");
-        printf("3) add_comp complex1(A-F), complex2(A-F)  -  Adds 2 complex numbers\n");
-        printf("4) sub_comp complex1(A-F), complex2(A-F)  -  Substract 2 complex numbers\n");
-        printf("5) mult_comp_real complex(A-F), real(double)  -  Multiplys a complex number with a real number\n");
-        printf("6) mult_comp_img complex(A-F), imaginary(double)  -  Multiplys a complex number with an imaginary number\n");
-        printf("7) mult_comp_comp complex1(A-F), complex2(A-F)  -  Multiplys 2 complex numbers\n");
-        printf("8) abs_comp complex(A-F)  -  Returns the  absolute value of a given complex number\n");
-        printf("9) print_all(void)  -  Prints all saved complex numbers\n");
-        printf("10) stop(void)  -  Stops the program\n");
 }
 
 
@@ -528,6 +498,38 @@ void use_mult_comp_img(char input[],int* index,comp* pointers[])
     printf("%fi * %c = ",imaginary.im ,var);
     print_comp(res);
     printf("\n");
+}
+
+void use_help()
+{
+        printf("List Of Valid Commands:\n");
+        printf("1) read_comp complex(A-F), real(double), imaginary(double)  -  Intializes a wanted complex number \n");
+        printf("2) print_comp complex(A-F)  -  Prints a wanted complex number\n");
+        printf("3) add_comp complex1(A-F), complex2(A-F)  -  Adds 2 complex numbers\n");
+        printf("4) sub_comp complex1(A-F), complex2(A-F)  -  Substract 2 complex numbers\n");
+        printf("5) mult_comp_real complex(A-F), real(double)  -  Multiplys a complex number with a real number\n");
+        printf("6) mult_comp_img complex(A-F), imaginary(double)  -  Multiplys a complex number with an imaginary number\n");
+        printf("7) mult_comp_comp complex1(A-F), complex2(A-F)  -  Multiplys 2 complex numbers\n");
+        printf("8) abs_comp complex(A-F)  -  Returns the  absolute value of a given complex number\n");
+        printf("9) print_all(void)  -  Prints all saved complex numbers\n");
+        printf("10) stop(void)  -  Stops the program\n");
+}
+
+void use_print_all(comp* pointers[])
+{
+        printf("A = ");
+        print_comp(*pointers[0]);
+        printf("\nB = ");
+        print_comp(*pointers[1]);
+        printf("\nC = ");
+        print_comp(*pointers[2]);
+        printf("\nD = ");
+        print_comp(*pointers[3]);
+        printf("\nE = ");
+        print_comp(*pointers[4]);
+        printf("\nF = ");
+        print_comp(*pointers[5]);
+        printf("\n");   
 }
 
 

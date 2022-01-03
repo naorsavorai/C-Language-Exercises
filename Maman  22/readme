@@ -1,0 +1,14 @@
+This program is a basic complex numbers calculator that is capable of :
+1)summing two complex numbers 
+2)substracting two complex numbers
+3)multeplying two complex numbers
+4)multieplying a complex number with a real number
+5)multieplying a complex number with an inmaginary number
+6)computing the absalout value of a complex number
+
+The progrem uses 6 varibales, each represents a complex number, the user uses these varibales
+to compute his wanted computations by first configuring valueone or more complex variables to the wanted value with the 'read' command.
+Complex variables are noted by a capital letter in the rang [A-F], each command must be entered in a single line (only one command per line).
+ for help please enter the 'help' command that will print the command menu:
+ To exit the program enter 'stop'.
+

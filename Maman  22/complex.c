@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "complex.h"
-
+/**/
 void read_comp(comp* z ,double real, double imaginary)
 {
         (*z).rl = real;

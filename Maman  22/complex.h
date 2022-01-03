@@ -27,3 +27,5 @@ void use_mult_comp_img(char input[],int* index,comp* pointers[]);
 void use_mult_comp_comp(char input[],int* index,comp* pointers[]);
 void use_abs_comp(char input[],int* index,comp* pointers[]);
 void read_input(comp* pointer[]);
+void use_print_all(comp* pointers[]);
+void use_help();
